@@ -57,6 +57,17 @@ a {
   border-bottom: 1px solid var(--border-subtle);
 }
 
+.logo-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 42px;        /* adjust as needed */
+  width: auto;
+  display: block;
+}
+
 .logo-mark {
   width: 40px;
   height: 40px;
