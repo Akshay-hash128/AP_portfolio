@@ -1,4 +1,5 @@
 // src/App.jsx
+import apLogo from "./assets/ap-motion-logo.svg";
 import React from "react";
 import ProjectCarousel from "./components/ProjectCarousel";
 
@@ -7,7 +8,9 @@ const App = () => {
     <div className="app-root">
       {/* Header / Nav */}
       <header className="site-header">
-        <div className="logo-mark">AP</div>
+        <a href="#hero" className="logo-wrap">
+          <img src={apLogo} alt="AP Motion Logo" className="logo-img" />
+        </a>
         <nav className="main-nav">
           <a href="#projects">Projects</a>
           <a href="#about">About</a>
