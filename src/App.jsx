@@ -1,5 +1,5 @@
 // src/App.jsx
-import apLogo from "./assets/ap-motion-logo.svg";
+import apLogo from "./assets/ap-motion-logo1.svg";
 import React from "react";
 import ProjectCarousel from "./components/ProjectCarousel";
 
