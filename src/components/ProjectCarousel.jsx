@@ -26,14 +26,14 @@ const projects = [
     tags: ["Python", "SQL", "Azure AI"],
     imageAlt: "Data ingestion / automation project placeholder",
   },
-  {
+  /*{
     title: "NRTA Wearable Concept",
     role: "Product Vision · Prototyping",
     description:
       "Modular IMU pods with BLE for real-time form tracking, rep counting, and feedback in strength training.",
     tags: ["Wearables", "IMU", "BLE"],
     imageAlt: "Wearable fitness project placeholder",
-  },
+  },*/
 ];
 
 const ProjectCarousel = () => {
