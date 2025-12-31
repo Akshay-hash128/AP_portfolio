@@ -201,7 +201,7 @@ a {
   color: var(--text-muted);
 }
 
-//* Hero layout stays the same, just ensure the visual column behaves */
+/* Hero layout stays the same, just ensure the visual column behaves */
 .hero-visual {
   display: flex;
   justify-content: center;
