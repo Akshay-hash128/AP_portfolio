@@ -50,14 +50,13 @@ const App = () => {
       <div className="hero-visual">
         <div className="hero-video-frame">
           <video
-            className="hero-video"
-            src="./assets/hero.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          />
+          className="hero-video"
+          src="/hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
         </div>
       </div>
 
