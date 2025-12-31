@@ -51,7 +51,7 @@ const App = () => {
         <div className="hero-video-frame">
           <video
             className="hero-video"
-            src="/hero.mp4"
+            src="./assets/hero.mp4"
             autoPlay
             muted
             loop
