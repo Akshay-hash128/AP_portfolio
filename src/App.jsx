@@ -46,16 +46,21 @@ const App = () => {
           </div>
         </div>
 
-        {/* Placeholder for future 3D viewer */}
-        <div className="hero-visual">
-          <div className="hero-visual-glass">
-            <p className="hero-visual-label">3D Model Placeholder</p>
-            <p className="hero-visual-caption">
-              Future: interactive 3D view of a cycloidal gearbox or AP Motion
-              arm.
-            </p>
-          </div>
+        {/* Placeholder for future 3D viewer */}  
+      <div className="hero-visual">
+        <div className="hero-video-frame">
+          <video
+            className="hero-video"
+            src="/hero.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
         </div>
+      </div>
+
       </section>
 
       {/* Projects Section */}
