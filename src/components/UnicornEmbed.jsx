@@ -27,10 +27,13 @@ export default function UnicornEmbed({
         if (!window.UnicornStudio.isInitialized) {
           window.UnicornStudio.init();
           window.UnicornStudio.isInitialized = true;
+          console.log("UnicornEmbed mounted", projectId);
+
         }
       };
 
       (document.head || document.body).appendChild(script);
+      
     }
   }, []);
 
@@ -40,6 +43,7 @@ export default function UnicornEmbed({
       data-us-project={projectId}
       className={className}
       style={{ width, height }}
+      
     />
   );
 }
