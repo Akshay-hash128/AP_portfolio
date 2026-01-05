@@ -9,33 +9,41 @@ export default function UnicornEmbed({
   const ref = useRef(null);
 
   useEffect(() => {
-    // If UnicornStudio already exists, just init again
-    if (window.UnicornStudio && window.UnicornStudio.isInitialized) {
+  const SRC =
+    "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.0/dist/unicornStudio.umd.js";
+
+  const init = () => {
+    if (window.UnicornStudio?.init) {
       window.UnicornStudio.init();
-      return;
+      window.UnicornStudio.isInitialized = true;
     }
+  };
 
-    // Exact logic from UnicornStudio embed
-    if (!window.UnicornStudio) {
-      window.UnicornStudio = { isInitialized: false };
+  const onResize = () => {
+    // Throttle via rAF so it doesn’t spam init
+    requestAnimationFrame(init);
+  };
 
-      const script = document.createElement("script");
-      script.src =
-        "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.0/dist/unicornStudio.umd.js";
+  // Load script once
+  const existing = document.querySelector(`script[src="${SRC}"]`);
+  if (existing) {
+    init();
+  } else {
+    if (!window.UnicornStudio) window.UnicornStudio = { isInitialized: false };
+    const s = document.createElement("script");
+    s.src = SRC;
+    s.async = true;
+    s.onload = init;
+    document.head.appendChild(s);
+  }
 
-      script.onload = () => {
-        if (!window.UnicornStudio.isInitialized) {
-          window.UnicornStudio.init();
-          window.UnicornStudio.isInitialized = true;
-          console.log("UnicornEmbed mounted", projectId);
+  window.addEventListener("resize", onResize);
 
-        }
-      };
+  return () => {
+    window.removeEventListener("resize", onResize);
+  };
+}, []);
 
-      (document.head || document.body).appendChild(script);
-      
-    }
-  }, []);
 
   return (
     <div
