@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <div className="app-root">
-      {/* Header / Nav */}
+      {/* H{eader / Nav */}
       <header className="site-header">
         <a href="#hero" className="logo-wrap">
           <img src={apLogo} alt="AP Motion Logo" className="logo-img" />
@@ -35,47 +35,14 @@ const App = () => {
         </nav>
       </header>
 
-      {/* FULLSCREEN HERO */}
+      {/* FULLSCREEN HERO (background only) */}
       <section id="hero" className="hero-section hero-fullscreen">
-        {/* UnicornStudio background (fades on scroll) */}
         <UnicornEmbed
           projectId="MZNZ3utZ7eUYmFgSShpk"
           className="hero-unicorn"
-          style={{ opacity: heroFade }}
         />
-
-        {/* Overlay for contrast (keep a minimum so text stays readable) */}
-        <div
-          className="hero-bg-overlay"
-          style={{ opacity: Math.max(0.15, heroFade) }}
-        />
-
-        {/* Foreground content (stays solid) */}
-        <div className="hero-content hero-content-overlay">
-          <p className="eyebrow">Portfolio · Robotics · Product Design</p>
-
-          <h1>
-            Akshay Padmanabhuni
-            <span className="hero-highlight"> / AP Motion</span>
-          </h1>
-
-          <p className="hero-subtitle">
-            Building precise motion systems, robotics, and clever hardware +
-            software interfaces.
-          </p>
-
-          <div className="hero-actions">
-            <a href="#projects" className="btn-primary">
-              View Projects
-            </a>
-            <a href="#contact" className="btn-ghost">
-              Let&apos;s Collaborate
-            </a>
-          </div>
-
-          <div className="hero-meta">Robotics · Mechatronics · PCB Design · CV / ML</div>
-        </div>
       </section>
+
 
       {/* Projects */}
       <section id="projects" className="section section-projects">
