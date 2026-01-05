@@ -112,7 +112,7 @@ a {
 .hero-unicorn {
   position: absolute;
   inset: 0;
-  width: 100%;
+  width: auto;
   height: 100%;
   z-index: 0;
 }
