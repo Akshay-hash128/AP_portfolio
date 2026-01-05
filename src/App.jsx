@@ -2,6 +2,7 @@
 import React from "react";
 import apLogo from "./assets/ap-motion-logo1.svg";
 import ProjectCarousel from "./components/ProjectCarousel";
+import UnicornEmbed from "./components/UnicornEmbed";
 
 const App = () => {
   return (
@@ -20,48 +21,43 @@ const App = () => {
 
       {/* FULLSCREEN HERO */}
       <section id="hero" className="hero-section hero-fullscreen">
-        <video
-          className="hero-video-bg"
-          src="/hero.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        />
+      {/* UnicornStudio background */}
+      <UnicornEmbed
+        projectId="MZNZ3utZ7eUYmFgSShpk"
+        className="hero-unicorn"
+      />
 
-        {/* Overlay for contrast */}
-        <div className="hero-bg-overlay" />
+      {/* Overlay for contrast */}
+      <div className="hero-bg-overlay" />
 
-        {/* Content on top of video */}
-        <div className="hero-content hero-content-overlay">
-          <p className="eyebrow">Portfolio · Robotics · Product Design</p>
+      {/* Foreground content */}
+      <div className="hero-content hero-content-overlay">
+        <p className="eyebrow">Portfolio · Robotics · Product Design</p>
 
-          <h1>
-            Akshay Padmanabhuni
-            <span className="hero-highlight"> / AP Motion</span>
-          </h1>
+        <h1>
+          Akshay Padmanabhuni
+          <span className="hero-highlight"> / AP Motion</span>
+        </h1>
 
-          <p className="hero-subtitle">
-            Building precise motion systems, robotics, and clever hardware +
-            software interfaces. This is the home of my experiments in
-            automation, 3D printing, and product design.
-          </p>
+        <p className="hero-subtitle">
+          Building precise motion systems, robotics, and clever hardware +
+          software interfaces.
+        </p>
 
-          <div className="hero-actions">
-            <a href="#projects" className="btn-primary">
-              View Projects
-            </a>
-            <a href="#contact" className="btn-ghost">
-              Let&apos;s Collaborate
-            </a>
-          </div>
-
-          <div className="hero-meta">
-            Robotics · Mechatronics · PCB Design · CV / ML
-          </div>
+        <div className="hero-actions">
+          <a href="#projects" className="btn-primary">
+            View Projects
+          </a>
+          <a href="#contact" className="btn-ghost">
+            Let&apos;s Collaborate
+          </a>
         </div>
-      </section>
+
+        <div className="hero-meta">
+          Robotics · Mechatronics · PCB Design · CV / ML
+        </div>
+      </div>
+    </section>
 
       {/* Projects */}
       <section id="projects" className="section section-projects">
