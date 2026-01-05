@@ -1,6 +1,7 @@
 /* src/styles.css */
 :root {
-  --bg-main: #050814;
+  /*--bg-main: #050814;*/
+  --bg-main: #1d3cb8;
   --bg-elevated: #0b1020;
   --accent: #758ecd;
   --accent-soft: rgba(117, 142, 205, 0.35);
