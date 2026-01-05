@@ -1,10 +1,26 @@
 // src/App.jsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 import apLogo from "./assets/ap-motion-logo1.svg";
 import ProjectCarousel from "./components/ProjectCarousel";
 import UnicornEmbed from "./components/UnicornEmbed";
 
 const App = () => {
+  const [heroFade, setHeroFade] = useState(1);
+
+  useEffect(() => {
+    const onScroll = () => {
+      // Fade out over first ~60% of viewport scroll
+      const max = window.innerHeight * 0.6;
+      const y = window.scrollY || 0;
+      const t = Math.min(1, y / max); // 0 -> 1
+      setHeroFade(1 - t); // 1 -> 0
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="app-root">
       {/* Header / Nav */}
@@ -21,43 +37,45 @@ const App = () => {
 
       {/* FULLSCREEN HERO */}
       <section id="hero" className="hero-section hero-fullscreen">
-      {/* UnicornStudio background */}
-      <UnicornEmbed
-        projectId="MZNZ3utZ7eUYmFgSShpk"
-        className="hero-unicorn"
-      />
+        {/* UnicornStudio background (fades on scroll) */}
+        <UnicornEmbed
+          projectId="MZNZ3utZ7eUYmFgSShpk"
+          className="hero-unicorn"
+          style={{ opacity: heroFade }}
+        />
 
-      {/* Overlay for contrast */}
-      <div className="hero-bg-overlay" />
+        {/* Overlay for contrast (keep a minimum so text stays readable) */}
+        <div
+          className="hero-bg-overlay"
+          style={{ opacity: Math.max(0.15, heroFade) }}
+        />
 
-      {/* Foreground content */}
-      <div className="hero-content hero-content-overlay">
-        <p className="eyebrow">Portfolio · Robotics · Product Design</p>
+        {/* Foreground content (stays solid) */}
+        <div className="hero-content hero-content-overlay">
+          <p className="eyebrow">Portfolio · Robotics · Product Design</p>
 
-        <h1>
-          Akshay Padmanabhuni
-          <span className="hero-highlight"> / AP Motion</span>
-        </h1>
+          <h1>
+            Akshay Padmanabhuni
+            <span className="hero-highlight"> / AP Motion</span>
+          </h1>
 
-        <p className="hero-subtitle">
-          Building precise motion systems, robotics, and clever hardware +
-          software interfaces.
-        </p>
+          <p className="hero-subtitle">
+            Building precise motion systems, robotics, and clever hardware +
+            software interfaces.
+          </p>
 
-        <div className="hero-actions">
-          <a href="#projects" className="btn-primary">
-            View Projects
-          </a>
-          <a href="#contact" className="btn-ghost">
-            Let&apos;s Collaborate
-          </a>
+          <div className="hero-actions">
+            <a href="#projects" className="btn-primary">
+              View Projects
+            </a>
+            <a href="#contact" className="btn-ghost">
+              Let&apos;s Collaborate
+            </a>
+          </div>
+
+          <div className="hero-meta">Robotics · Mechatronics · PCB Design · CV / ML</div>
         </div>
-
-        <div className="hero-meta">
-          Robotics · Mechatronics · PCB Design · CV / ML
-        </div>
-      </div>
-    </section>
+      </section>
 
       {/* Projects */}
       <section id="projects" className="section section-projects">
@@ -120,7 +138,9 @@ const App = () => {
               <label>Message</label>
               <textarea rows="4" required />
             </div>
-            <button className="btn-primary">Send Message</button>
+            <button className="btn-primary" type="submit">
+              Send Message
+            </button>
           </form>
         </div>
       </section>

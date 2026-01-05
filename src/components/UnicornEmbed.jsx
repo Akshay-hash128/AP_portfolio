@@ -47,10 +47,9 @@ export default function UnicornEmbed({
 
   return (
     <div
-      ref={ref}
       data-us-project={projectId}
       className={className}
-      style={{ width, height }}
+      style={{ width, height,style }}
       
     />
   );
