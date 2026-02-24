@@ -9,9 +9,6 @@ export default function UnicornEmbed({
   style = {},
 }) {
   useEffect(() => {
-    const SRC =
-      "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.0/dist/unicornStudio.umd.js";
-
     const init = () => {
       if (window.UnicornStudio?.init) {
         window.UnicornStudio.init();
@@ -20,7 +17,7 @@ export default function UnicornEmbed({
     };
 
     const onResize = () => {
-      // Throttle via rAF so it doesn’t spam init
+      // Throttle via rAF so it doesn't spam init
       requestAnimationFrame(init);
     };
 
@@ -44,13 +41,11 @@ export default function UnicornEmbed({
     };
   }, []);
 
-
   return (
     <div
       data-us-project={projectId}
       className={className}
-      style={{ width, height, style }}
-
+      style={style}
     />
   );
 }
