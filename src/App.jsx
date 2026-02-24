@@ -37,10 +37,13 @@ const App = () => {
 
       {/* FULLSCREEN HERO (background only) */}
       <section id="hero" className="hero-section hero-fullscreen">
-        <UnicornEmbed
-          projectId="MZNZ3utZ7eUYmFgSShpk"
-          className="hero-unicorn"
-        />
+        {/* FADE THIS WRAPPER, NOT UNICORN */}
+        <div className="hero-unicorn-wrapper" style={{ opacity: heroFade }}>
+          <UnicornEmbed
+            projectId="MZNZ3utZ7eUYmFgSShpk"
+            className="hero-unicorn"
+          />
+        </div>
       </section>
 
 
@@ -76,10 +79,38 @@ const App = () => {
           </div>
 
           <ul className="about-list">
-            <li>⚙️ 5-axis desktop robot arm with cycloidal drives</li>
-            <li>🧠 AI-powered automation pipelines</li>
-            <li>🖨️ Functional 3D printed mechanisms</li>
-            <li>📐 Motor-control PCB design</li>
+            <li>
+              <span className="about-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="3" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07" />
+                </svg>
+              </span>
+              5-axis desktop robot arm with cycloidal drives
+            </li>
+            <li>
+              <span className="about-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" /><path d="M7 7h.01M12 7h.01M17 7h.01M7 11h10" />
+                </svg>
+              </span>
+              AI-powered automation pipelines
+            </li>
+            <li>
+              <span className="about-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" />
+                </svg>
+              </span>
+              Functional 3D printed mechanisms
+            </li>
+            <li>
+              <span className="about-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="2" /><path d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01" /><path d="M7 12h10M12 7v10" />
+                </svg>
+              </span>
+              Motor-control PCB design
+            </li>
           </ul>
         </div>
       </section>
